@@ -63,7 +63,7 @@ class ChromeHeadless
      *
      * @var string
      */
-    protected $chrome_path = 'google-chrome';
+    protected $chrome_path;
 
     /**
      * Timeout in seconds.
@@ -253,9 +253,12 @@ class ChromeHeadless
     public function createCommand()
     {
         $options = [
-            'url' => $this->url,
-            'path' => $this->chrome_path,
+            'url' => $this->url
         ];
+
+        if (! empty($this->chrome_path)) {
+            $options['path'] = $this->chrome_path;
+        }
 
         if (! empty($this->user_agent)) {
             $options['userAgent'] = $this->user_agent;
