@@ -253,7 +253,7 @@ class ChromeHeadless
     public function createCommand()
     {
         $options = [
-            'url' => $this->url
+            'url' => $this->url,
         ];
 
         if (! empty($this->chrome_path)) {
