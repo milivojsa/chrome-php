@@ -1,5 +1,5 @@
 # A Chrome Headless wrapper for PHP
-[![Build Status](https://img.shields.io/travis/helloiamlukas/chrome-php/master.svg?style=flat-square)](https://travis-ci.org/helloiamlukas/chrome-php) [![StyleCI](https://styleci.io/repos/128383656/shield?branch=master)](https://styleci.io/repos/128383656)
+#[![Build Status](https://img.shields.io/travis/helloiamlukas/chrome-php/master.svg?style=flat-square)](https://travis-ci.org/helloiamlukas/chrome-php) [![StyleCI](https://styleci.io/repos/128383656/shield?branch=master)](https://styleci.io/repos/128383656)
 
 Get the DOM of any webpage by using headless Chrome. Inspired by [Browsershot](https://github.com/spatie/browsershot).
 
@@ -19,7 +19,7 @@ sudo chmod -R o+rx /usr/lib/node_modules/puppeteer/.local-chromium
 To add this package to your project, you can install it via composer by running
 
 ```bash
-composer require helloiamlukas/chrome-php
+composer require milivojsa/chrome-php
 ```
 
 ## Usage
