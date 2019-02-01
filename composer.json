@@ -1,7 +1,7 @@
 {
-    "name": "helloiamlukas/chrome-php",
+    "name": "milivojsa/chrome-php",
     "description": "A PHP Wrapper for Chrome Headless. Get the DOM of any webpage.",
-    "homepage": "https://github.com/helloiamlukas/chrome-php",
+    "homepage": "https://github.com/milivojsa/chrome-php",
     "keywords":
     [
         "webpage",
