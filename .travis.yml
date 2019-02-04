@@ -16,7 +16,7 @@ before_script:
   - nvm use stable
   - npm install puppeteer
   - travis_retry composer self-update
-  - travis_retry composer update --no-interaction --prefer-dist
+  - travis_retry composer install --no-interaction --prefer-dist
 
 script:
   - composer test
