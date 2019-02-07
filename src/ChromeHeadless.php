@@ -218,7 +218,7 @@ class ChromeHeadless
     public function setExcluded(array $excluded)
     {
         $this->excluded = $excluded;
-    
+
         return $this;
     }
 
