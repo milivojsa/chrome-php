@@ -100,6 +100,19 @@ ChromeHeadless::url('https://example.com')
                 ->getDOMCrawler();
 ```
 
+### Excluded
+
+You can specify a list of resource types  that should not be loaded when you request a website. These resource types will be checked against the resource type of the file. You can pass values: document, stylesheet, image, media, font and script,
+
+```php
+ChromeHeadless::url('https://example.com')
+                ->setExcluded([
+                    'image',
+                    'stylesheet'
+                ])
+                ->getDOMCrawler();
+```
+
 ### Viewport
 
 You can specify a custom viewport that will be used when you make a request. By default the Chrome Headless standard of 800x600px will be used.

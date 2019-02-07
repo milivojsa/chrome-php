@@ -52,11 +52,18 @@ class ChromeHeadless
     protected $headers;
 
     /**
-     * List of files that should not be loaded.
+     * List of regular experssions for filtering resources.
      *
      * @var array
      */
     protected $blacklist = [];
+
+    /**
+     * List of resource types that should not be loaded.
+     *
+     * @var array
+     */
+    protected $excluded = [];
 
     /**
      * Path to chrome.
@@ -167,30 +174,52 @@ class ChromeHeadless
      * Set the viewport.
      *
      * @param mixed $viewport
+     * @return $this
      */
     public function setViewport($viewport)
     {
         $this->viewport = $viewport;
+
+        return $this;
     }
 
     /**
      * Set additional request headers.
      *
      * @param mixed $headers
+     * @return $this
      */
     public function setHeaders($headers)
     {
         $this->headers = $headers;
+
+        return $this;
     }
 
     /**
-     * Set a blacklist of files that should not be loaded.
+     * Set a list of regular expressions to filter resources.
      *
      * @param array $blacklist
+     * @return $this
      */
     public function setBlacklist(array $blacklist)
     {
         $this->blacklist = $blacklist;
+
+        return $this;
+    }
+
+    /**
+     * Set a excluded file types that should not be loaded.
+     *
+     * @param array $excluded
+     * @return $this
+     */
+    public function setExcluded(array $excluded)
+    {
+        $this->excluded = $excluded;
+    
+        return $this;
     }
 
     /**
@@ -274,6 +303,10 @@ class ChromeHeadless
 
         if (! empty($this->blacklist)) {
             $options['blacklist'] = $this->blacklist;
+        }
+
+        if (! empty($this->excluded)) {
+            $options['excluded'] = $this->excluded;
         }
 
         $command = [

@@ -23,15 +23,19 @@ const runChrome = async () => {
             if (options.headers)
                 await page.setExtraHTTPHeaders(options.headers);
 
-            if (options.blacklist && options.blacklist.length) {
+            if (options.blacklist || options.excluded) {
                 await page.setRequestInterception(true);
-                page.on('request', req => {
-                    const block = ['www.google-analytics.com', '/gtag/js', 'ga.js', 'analytics.js'];
-                    if (block.find(regex => req.url().match(regex))) return req.abort();
-                    req.continue();
+
+                page.on('request', request => {         
+                    if (options.blacklist && options.blacklist.find(regex => request.url().match(regex))) {
+                        request.abort();         
+                    } else if (options.excluded && options.excluded.indexOf(request.resourceType()) !== -1) {
+                        request.abort();
+                    } else {
+                        request.continue();
+                    }
                 });
             }
-
 
             /*
                 The following code is taken from
