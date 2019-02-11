@@ -8,7 +8,7 @@ use ChromeHeadless\Exceptions\ChromeException;
 use Symfony\Component\Process\Exception\ProcessTimedOutException;
 
 class ChromeHeadlessTest extends TestCase
-{   
+{
     /**
      * @test
      */
@@ -18,7 +18,7 @@ class ChromeHeadlessTest extends TestCase
 
         $this->assertTrue(true);
     }
-    
+
     /**
      * @test
      */
@@ -28,7 +28,7 @@ class ChromeHeadlessTest extends TestCase
 
         $this->assertTrue(true);
     }
-    
+
     /**
      * @test
      */
@@ -40,7 +40,7 @@ class ChromeHeadlessTest extends TestCase
             ->setExcluded(['document'])
             ->getHtml();
     }
-    
+
     /**
      * @test
      */
@@ -50,7 +50,7 @@ class ChromeHeadlessTest extends TestCase
 
         ChromeHeadless::url('https://example.com')->setTimeout(0.01)->getHtml();
     }
-        
+
     /**
      * @test
      */
@@ -66,7 +66,7 @@ class ChromeHeadlessTest extends TestCase
         $this->assertContains('blaclisted_1', $headless->getBlacklist());
         $this->assertContains('excluded_1', $headless->getExcluded());
     }
-        
+
     /**
      * @test
      */
@@ -82,7 +82,7 @@ class ChromeHeadlessTest extends TestCase
         $this->assertNotContains('blaclisted_1', $headless->getBlacklist());
         $this->assertNotContains('excluded_1', $headless->getExcluded());
     }
-    
+
     /**
      * @test
      */
@@ -92,7 +92,7 @@ class ChromeHeadlessTest extends TestCase
 
         ChromeHeadless::url('https://httpstat.us/500')->getHtml();
     }
-    
+
     /**
      * @test
      */

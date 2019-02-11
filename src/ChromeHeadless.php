@@ -200,11 +200,11 @@ class ChromeHeadless
      * Set a list of regular expressions to filter resources.
      *
      * @param  array  $blacklist
-     * @param  bool  $clean 
+     * @param  bool  $clean
      * @return  $this
      */
     public function setBlacklist(array $blacklist, $clean = false)
-    {   
+    {
         if (! $clean) {
             $blacklist = array_merge($this->blacklist ?? [], $blacklist);
         }
@@ -218,7 +218,7 @@ class ChromeHeadless
      * Set a excluded file types that should not be loaded.
      *
      * @param array $excluded
-     * @param  bool  $clean 
+     * @param  bool  $clean
      * @return $this
      */
     public function setExcluded(array $excluded, $clean = false)
@@ -233,7 +233,7 @@ class ChromeHeadless
     }
 
     /**
-     * Get the blacklist property
+     * Get the blacklist property.
      * @return  array List of regex patterns for filtering requests
      */
     public function getBlacklist()
@@ -242,7 +242,7 @@ class ChromeHeadless
     }
 
     /**
-     * Get the excluded property
+     * Get the excluded property.
      * @return  array List of excluded resource types for filtering requests
      */
     public function getExcluded()
