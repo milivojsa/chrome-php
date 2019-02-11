@@ -1,6 +1,6 @@
 # A Chrome Headless wrapper for PHP
 
-[![Build Status](https://travis-ci.org/milivojsa/chrome-php.svg?branch=master)](https://travis-ci.org/milivojsa/chrome-php) [![StyleCI](https://github.styleci.io/repos/168714310/shield?branch=master)](https://github.styleci.io/repos/168714310)
+![](https://img.shields.io/github/tag/milivojsa/chrome-php.svg?style=flat)[![Build Status](https://travis-ci.org/milivojsa/chrome-php.svg?branch=master)](https://travis-ci.org/milivojsa/chrome-php) [![StyleCI](https://github.styleci.io/repos/168714310/shield?branch=master)](https://github.styleci.io/repos/168714310)
 
 Get the DOM of any webpage by using headless Chrome. Inspired by [Browsershot](https://github.com/spatie/browsershot).
 
@@ -91,7 +91,19 @@ ChromeHeadless::url('https://example.com')
 
 ### Blacklist
 
-You can specify a list of regular expressions for files that should not be loaded when you request a website. These expressions will be checked against the url of the file.
+You can specify a list of regular expressions for files that should not be loaded when you request a website. These expressions will be checked against the url of the file. Default behaviour of the method `setBlacklist(array $blacklist, $clean = false)` is to merge array passed as `$blacklist` with current `blacklist` property. If you want to override this default behaviour then you can set parameter `$clean` to be `true`.
+
+```php
+ChromeHeadless::url('https://example.com')
+                ->setBlacklist([
+                    'www.example.com'
+                ])
+                ->setBlacklist([
+                    'www.google-analytics.com',
+                    'analytics.js'
+                ]) // property blacklist now will have www.example.com and those two
+                ->getDOMCrawler();
+```
 
 ```php
 ChromeHeadless::url('https://example.com')
@@ -99,19 +111,37 @@ ChromeHeadless::url('https://example.com')
                     'www.google-analytics.com',
                     'analytics.js'
                 ])
+                ->setBlacklist([
+                    'www.example.com'
+                ], true) // property blacklist now will only have www.example.com 
                 ->getDOMCrawler();
 ```
 
 ### Excluded
 
-You can specify a list of resource types  that should not be loaded when you request a website. These resource types will be checked against the resource type of the file. You can pass values: document, stylesheet, image, media, font and script,
+You can specify a list of resource types  that should not be loaded when you request a website. These resource types will be checked against the resource type of the file. You can pass values: `document, stylesheet, image, media, font and script.` Default behaviour of the method `setExcluded(array $excluded, $clean = false)` is to merge array passed as `$excluded` with current `excluded` property. If you want to override this default behaviour then you can set parameter `$clean` to be `true`.
 
 ```php
 ChromeHeadless::url('https://example.com')
                 ->setExcluded([
-                    'image',
-                    'stylesheet'
+                    'document'
                 ])
+                ->setExcluded([
+                    'stylesheet',
+                    'image'
+                ]) // property excluded now will only have document and those two
+                ->getDOMCrawler();
+```
+
+```php
+ChromeHeadless::url('https://example.com')
+                ->setExcluded([
+                    'stylesheet'
+                    'image'
+                ]) 
+                ->setExcluded([
+                    'document'
+                ], true) // property excluded now will only have only document
                 ->getDOMCrawler();
 ```
 
