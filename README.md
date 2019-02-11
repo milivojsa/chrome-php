@@ -1,6 +1,6 @@
 # A Chrome Headless wrapper for PHP
 
-![](https://img.shields.io/github/tag/milivojsa/chrome-php.svg?style=flat)[![Build Status](https://travis-ci.org/milivojsa/chrome-php.svg?branch=master)](https://travis-ci.org/milivojsa/chrome-php) [![StyleCI](https://github.styleci.io/repos/168714310/shield?branch=master)](https://github.styleci.io/repos/168714310)
+[![Version](https://img.shields.io/github/tag/milivojsa/chrome-php.svg?style=flat)](https://github.com/milivojsa/chrome-php) [![Build Status](https://travis-ci.org/milivojsa/chrome-php.svg?branch=master)](https://travis-ci.org/milivojsa/chrome-php) [![StyleCI](https://github.styleci.io/repos/168714310/shield?branch=master)](https://github.styleci.io/repos/168714310)
 
 Get the DOM of any webpage by using headless Chrome. Inspired by [Browsershot](https://github.com/spatie/browsershot).
 
