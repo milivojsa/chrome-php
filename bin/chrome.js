@@ -9,7 +9,8 @@ const runChrome = async () => {
         try {
             browser = await puppeteer.launch({
                 ignoreHTTPSErrors: true,
-                executablePath: options.path
+                executablePath: options.path,
+                args: ['--no-sandbox']
             });
 
             page = await browser.newPage();
